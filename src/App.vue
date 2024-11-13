@@ -18,7 +18,7 @@
 
 <script setup>
 import { reactive, toRaw } from 'vue';
-  import ChessBoard from './components/ChessBoard/ChessBoard.vue';
+  import ChessBoard from './components/chessBoard/ChessBoard.vue';
   import GamePanel from './components/gamePanel/GamePanel.vue';
   import { convertIndexesToTileString } from './utils';
   import { theme } from './styles/theme.ts';
