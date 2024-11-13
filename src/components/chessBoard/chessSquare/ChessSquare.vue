@@ -70,8 +70,8 @@
     cursor: pointer;
     box-sizing: border-box;
     aspect-ratio: 1 / 1;
-    box-shadow: inset -0.5rem -0.5rem rgba(0, 0, 0, .2);
-    border-radius: 5px;
+    box-shadow: inset -0.5em -0.5em rgba(0, 0, 0, .2);
+    border-radius: 5%;
     transition: filter 0.3s;
   }
 

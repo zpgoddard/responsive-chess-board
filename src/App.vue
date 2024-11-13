@@ -131,6 +131,7 @@ import { reactive, toRaw } from 'vue';
     }
     .boardWrapper {
       width: -webkit-fill-available;
+      font-size: 75%;
     }
     .panelWrapper {
       width: 500px;
