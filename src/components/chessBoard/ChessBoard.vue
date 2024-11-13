@@ -14,8 +14,8 @@
 </template>
 
 <script setup>
-  import ChessSquare from './chessSquare/ChessSquare.vue';
   import { defineProps, defineEmits } from 'vue';
+  import ChessSquare from './chessSquare/ChessSquare.vue';
 
   defineProps({
     theme: { 
