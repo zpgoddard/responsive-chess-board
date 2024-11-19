@@ -146,12 +146,13 @@ import { reactive, toRaw } from 'vue';
     }
     .boardWrapper {
       width: -webkit-fill-available;
-      min-width: 300px;
+      min-width: 200px;
       font-size: 50%;
     }
     .panelWrapper {
       width: 320px;
-      height: 200px;
+      height: 100px;
     }
   }
+
 </style>
