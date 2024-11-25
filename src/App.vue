@@ -40,7 +40,6 @@ import { reactive, toRaw } from 'vue';
     selectedTile.row = newSelectedTile.row;
     logAction(newSelectedTile);
   };
-
 </script>
 
 <style>
