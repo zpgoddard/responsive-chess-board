@@ -18,11 +18,17 @@
     >
       {{ 'abcdefgh'.split('')[props.columnIndex] }}
     </div>
+    <ChessPiece
+      v-if="props.piece.isVisible"
+      :pieceType="props.piece.pieceType"
+      :pieceColor="props.piece.pieceColor"
+    />
   </div>
 </template>
 
 <script setup>
   import { computed } from 'vue';
+  import ChessPiece from './chessPiece/ChessPiece.vue';
 
   const emit = defineEmits(['update-selected-tile']);
 
@@ -47,7 +53,11 @@
     selectedTile: {
       type: Object,
       required: true,
-    }
+    },
+    piece: {
+      type: Object,
+      required: true
+    } 
   });
 
   const backgroundColor = computed(() => {
@@ -60,6 +70,7 @@
   const textColor = computed(() => {
     return (props.rowIndex + props.columnIndex) % 2 === 0 ? props.theme.boardWhite : props.theme.boardBlack;
   });
+
 </script>
 
 <style scoped>

@@ -8,6 +8,7 @@
       :columnIndex="(i - 1) % 8"
       :theme="theme"
       :selectedTile="selectedTile"
+      :piece="checkSquareForPiece((i - 1) % 8, 7 - Math.floor((i - 1) / 8))"
       @update-selected-tile="handleUpdateSelectedTile"
     />
   </div>
@@ -16,6 +17,10 @@
 <script setup>
   import { defineProps, defineEmits } from 'vue';
   import ChessSquare from './chessSquare/ChessSquare.vue';
+  import { useBoardStateStore } from '@/stores/boardState';
+  import { pieceIndexes } from "@/data/indexes";
+
+  const boardStateStore = useBoardStateStore();
 
   defineProps({
     theme: { 
@@ -32,6 +37,35 @@
 
   const handleUpdateSelectedTile = (tile) => {
     emit('update-selected-tile', tile);
+  };
+
+  const checkSquareForPiece = (targetColumnIndex, targetRowIndex) => {
+
+    for (const [key, piece] of Object.entries(boardStateStore.white)) {
+      if (!piece.isTaken && piece.currentColumnIndex === targetColumnIndex && piece.currentRowIndex === targetRowIndex) {
+        return { 
+          isVisible: true,
+          pieceType: pieceIndexes[piece.pieceTypeIndex],
+          pieceColor: "white"
+        };
+      }
+    } 
+
+    for (const [key, piece] of Object.entries(boardStateStore.black)) {
+      if (!piece.isTaken && piece.currentColumnIndex === targetColumnIndex && piece.currentRowIndex === targetRowIndex) {
+        return { 
+          isVisible: true,
+          pieceType: pieceIndexes[piece.pieceTypeIndex],
+          pieceColor: "black"
+        };
+      }
+    } 
+
+    return {
+      isVisible: false,
+      pieceType: "",
+      pieceColor: ""
+    };
   };
 </script>
 
